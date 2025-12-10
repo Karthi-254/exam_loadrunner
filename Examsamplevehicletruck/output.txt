@@ -1,0 +1,110 @@
+Virtual User Script started at: 10-12-2025 15:55:25
+Starting action vuser_init.
+Web Turbo Replay of LoadRunner 2023.0.0 for Windows 10; build 506 (Mar 08 2023 13:11:40)  	[MsgId: MMSG-26983]
+Run mode: HTML  	[MsgId: MMSG-26993]
+Replay user agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/113.0.0.0 Safari/537.36  	[MsgId: MMSG-26988]
+Runtime Settings file: "C:\Users\Administrator\Documents\VuGen\Scripts\Examsamplevehicletruck\\default.cfg"  	[MsgId: MMSG-27141]
+Ending action vuser_init.
+Running Vuser...
+Starting iteration 1.
+Maximum number of concurrent connections per server: 6  	[MsgId: MMSG-26989]
+Starting action Homepagetruck.
+Homepagetruck.c(4): web_set_sockets_option started  	[MsgId: MMSG-26355]
+Homepagetruck.c(4): web_set_sockets_option was successful  	[MsgId: MMSG-26392]
+Homepagetruck.c(6): web_set_sockets_option started  	[MsgId: MMSG-26355]
+Homepagetruck.c(6): web_set_sockets_option was successful  	[MsgId: MMSG-26392]
+Homepagetruck.c(8): web_add_auto_header("Accept-Language") started  	[MsgId: MMSG-26355]
+Homepagetruck.c(8): web_add_auto_header("Accept-Language") was successful  	[MsgId: MMSG-26392]
+Homepagetruck.c(11): web_url("101") started  	[MsgId: MMSG-26355]
+Homepagetruck.c(11): Found resource "https://sampleapp.tricentis.com/101/layout/fonts/awesome/font-awesome.min.css" in HTML "https://sampleapp.tricentis.com/101/"  	[MsgId: MMSG-26659]
+Homepagetruck.c(11): Found resource "https://sampleapp.tricentis.com/101/layout/fonts/lineo/style.css" in HTML "https://sampleapp.tricentis.com/101/"  	[MsgId: MMSG-26659]
+Homepagetruck.c(11): Found resource "https://sampleapp.tricentis.com/101/layout/css/style.css?v3" in HTML "https://sampleapp.tricentis.com/101/"  	[MsgId: MMSG-26659]
+Homepagetruck.c(11): Found resource "https://sampleapp.tricentis.com/101/images/logo.png" in HTML "https://sampleapp.tricentis.com/101/"  	[MsgId: MMSG-26659]
+Homepagetruck.c(11): Found resource "https://sampleapp.tricentis.com/101/images/app_icon_24.png" in HTML "https://sampleapp.tricentis.com/101/"  	[MsgId: MMSG-26659]
+Homepagetruck.c(11): Found resource "https://sampleapp.tricentis.com/101/images/app_icon_car.png" in HTML "https://sampleapp.tricentis.com/101/"  	[MsgId: MMSG-26659]
+Homepagetruck.c(11): Found resource "https://sampleapp.tricentis.com/101/images/app_icon_relax.png" in HTML "https://sampleapp.tricentis.com/101/"  	[MsgId: MMSG-26659]
+Homepagetruck.c(11): Found resource "https://sampleapp.tricentis.com/101/images/app_icon_people.png" in HTML "https://sampleapp.tricentis.com/101/"  	[MsgId: MMSG-26659]
+Homepagetruck.c(11): Found resource "https://sampleapp.tricentis.com/101/images/photo_car.png" in HTML "https://sampleapp.tricentis.com/101/"  	[MsgId: MMSG-26659]
+Homepagetruck.c(11): Found resource "https://sampleapp.tricentis.com/101/images/photo_camper.png" in HTML "https://sampleapp.tricentis.com/101/"  	[MsgId: MMSG-26659]
+Homepagetruck.c(11): Found resource "https://sampleapp.tricentis.com/101/images/photo_truck.png" in HTML "https://sampleapp.tricentis.com/101/"  	[MsgId: MMSG-26659]
+Homepagetruck.c(11): Found resource "https://sampleapp.tricentis.com/101/images/photo_bike.png" in HTML "https://sampleapp.tricentis.com/101/"  	[MsgId: MMSG-26659]
+Homepagetruck.c(11): Found resource "https://sampleapp.tricentis.com/101/jquery/jquery-1.12.0.min.js" in HTML "https://sampleapp.tricentis.com/101/"  	[MsgId: MMSG-26659]
+Homepagetruck.c(11): Found resource "https://sampleapp.tricentis.com/101/jquery/jquery-flexslider-2.2.2.min.js" in HTML "https://sampleapp.tricentis.com/101/"  	[MsgId: MMSG-26659]
+Homepagetruck.c(11): Found resource "https://sampleapp.tricentis.com/101/layout/js/app.js" in HTML "https://sampleapp.tricentis.com/101/"  	[MsgId: MMSG-26659]
+Homepagetruck.c(11): Found resource "https://sampleapp.tricentis.com/101/cookies/jquery.cookie.js" in HTML "https://sampleapp.tricentis.com/101/"  	[MsgId: MMSG-26659]
+Homepagetruck.c(11): Found resource "https://sampleapp.tricentis.com/101/navigation/navigation.js" in HTML "https://sampleapp.tricentis.com/101/"  	[MsgId: MMSG-26659]
+Homepagetruck.c(11): web_url("101") was successful, 901350 body bytes, 4371 header bytes, 12 chunking overhead bytes  	[MsgId: MMSG-26385]
+Homepagetruck.c(21): web_set_sockets_option started  	[MsgId: MMSG-26355]
+Homepagetruck.c(21): web_set_sockets_option was successful  	[MsgId: MMSG-26392]
+Homepagetruck.c(23): Notify: Transaction "home" started.
+Homepagetruck.c(25): web_reg_find started  	[MsgId: MMSG-26355]
+Homepagetruck.c(25): Registering web_reg_find was successful  	[MsgId: MMSG-26390]
+Homepagetruck.c(28): lr_think_time: 27.00 seconds (recorded think time was 9.00 seconds).
+Homepagetruck.c(31): web_reg_save_param_regexp started  	[MsgId: MMSG-26355]
+Homepagetruck.c(31): Registering web_reg_save_param_regexp was successful  	[MsgId: MMSG-26390]
+Homepagetruck.c(41): web_reg_save_param_attrib started  	[MsgId: MMSG-26355]
+Homepagetruck.c(41): Registering web_reg_save_param_attrib was successful  	[MsgId: MMSG-26390]
+Homepagetruck.c(54): web_reg_save_param_regexp started  	[MsgId: MMSG-26355]
+Homepagetruck.c(54): Registering web_reg_save_param_regexp was successful  	[MsgId: MMSG-26390]
+Homepagetruck.c(65): web_reg_save_param_regexp started  	[MsgId: MMSG-26355]
+Homepagetruck.c(65): Registering web_reg_save_param_regexp was successful  	[MsgId: MMSG-26390]
+Homepagetruck.c(74): web_url("app.php") started  	[MsgId: MMSG-26355]
+Homepagetruck.c(74): Resource "https://sampleapp.tricentis.com/101/layout/fonts/awesome/font-awesome.min.css" is in the cache already and will not be downloaded again  	[MsgId: MMSG-26655]
+Homepagetruck.c(74): Resource "https://sampleapp.tricentis.com/101/layout/fonts/lineo/style.css" is in the cache already and will not be downloaded again  	[MsgId: MMSG-26655]
+Homepagetruck.c(74): Found resource "https://sampleapp.tricentis.com/101/forms/css/normalize.css" in HTML "https://sampleapp.tricentis.com/101/app.php"  	[MsgId: MMSG-26659]
+Homepagetruck.c(74): Found resource "https://sampleapp.tricentis.com/101/forms/css/jquery.idealforms.css" in HTML "https://sampleapp.tricentis.com/101/app.php"  	[MsgId: MMSG-26659]
+Homepagetruck.c(74): Found resource "https://sampleapp.tricentis.com/101/alerts/dist/sweetalert.css" in HTML "https://sampleapp.tricentis.com/101/app.php"  	[MsgId: MMSG-26659]
+Homepagetruck.c(74): Found resource "https://sampleapp.tricentis.com/101/loader/xloader.css" in HTML "https://sampleapp.tricentis.com/101/app.php"  	[MsgId: MMSG-26659]
+Homepagetruck.c(74): Resource "https://sampleapp.tricentis.com/101/layout/css/style.css?v3" is in the cache already and will not be downloaded again  	[MsgId: MMSG-26655]
+Homepagetruck.c(74): Found resource "https://sampleapp.tricentis.com/101/hexagons/css/hexagons.css" in HTML "https://sampleapp.tricentis.com/101/app.php"  	[MsgId: MMSG-26659]
+Homepagetruck.c(74): Resource "https://sampleapp.tricentis.com/101/images/logo.png" is in the cache already and will not be downloaded again  	[MsgId: MMSG-26655]
+Homepagetruck.c(74): Resource "https://sampleapp.tricentis.com/101/jquery/jquery-1.12.0.min.js" is in the cache already and will not be downloaded again  	[MsgId: MMSG-26655]
+Homepagetruck.c(74): Found resource "https://sampleapp.tricentis.com/101/jquery/jquery-ui-1.10.3.min.js" in HTML "https://sampleapp.tricentis.com/101/app.php"  	[MsgId: MMSG-26659]
+Homepagetruck.c(74): Found resource "https://sampleapp.tricentis.com/101/isLoading/isLoading.min.js" in HTML "https://sampleapp.tricentis.com/101/app.php"  	[MsgId: MMSG-26659]
+Homepagetruck.c(74): Resource "https://sampleapp.tricentis.com/101/layout/js/app.js" is in the cache already and will not be downloaded again  	[MsgId: MMSG-26655]
+Homepagetruck.c(74): Found resource "https://sampleapp.tricentis.com/101/forms/js/out/jquery.idealforms.js" in HTML "https://sampleapp.tricentis.com/101/app.php"  	[MsgId: MMSG-26659]
+Homepagetruck.c(74): Found resource "https://sampleapp.tricentis.com/101/forms/customization/configuration.js" in HTML "https://sampleapp.tricentis.com/101/app.php"  	[MsgId: MMSG-26659]
+Homepagetruck.c(74): Found resource "https://sampleapp.tricentis.com/101/forms/customization/costumrules.js" in HTML "https://sampleapp.tricentis.com/101/app.php"  	[MsgId: MMSG-26659]
+Homepagetruck.c(74): Found resource "https://sampleapp.tricentis.com/101/forms/customization/costumerrors.js" in HTML "https://sampleapp.tricentis.com/101/app.php"  	[MsgId: MMSG-26659]
+Homepagetruck.c(74): Found resource "https://sampleapp.tricentis.com/101/forms/customization/calculations.js" in HTML "https://sampleapp.tricentis.com/101/app.php"  	[MsgId: MMSG-26659]
+Homepagetruck.c(74): Found resource "https://sampleapp.tricentis.com/101/forms/customization/makeapp.js" in HTML "https://sampleapp.tricentis.com/101/app.php"  	[MsgId: MMSG-26659]
+Homepagetruck.c(74): Found resource "https://sampleapp.tricentis.com/101/hexagons/js/hexagons.js" in HTML "https://sampleapp.tricentis.com/101/app.php"  	[MsgId: MMSG-26659]
+Homepagetruck.c(74): Found resource "https://sampleapp.tricentis.com/101/alerts/dist/sweetalert.min.js" in HTML "https://sampleapp.tricentis.com/101/app.php"  	[MsgId: MMSG-26659]
+Homepagetruck.c(74): Resource "https://sampleapp.tricentis.com/101/cookies/jquery.cookie.js" is in the cache already and will not be downloaded again  	[MsgId: MMSG-26655]
+Homepagetruck.c(74): Resource "https://sampleapp.tricentis.com/101/navigation/navigation.js" is in the cache already and will not be downloaded again  	[MsgId: MMSG-26655]
+Homepagetruck.c(74): Found resource "https://sampleapp.tricentis.com/101/tables/pricetableclickhandler.js" in HTML "https://sampleapp.tricentis.com/101/app.php"  	[MsgId: MMSG-26659]
+Homepagetruck.c(74): Registered web_reg_find successful for "Text=Make" (count=4)  	[MsgId: MMSG-26364]
+Homepagetruck.c(74): web_url("app.php") was successful, 476705 body bytes, 4200 header bytes, 13 chunking overhead bytes  	[MsgId: MMSG-26385]
+Homepagetruck.c(84): Notify: Transaction "home" ended with a "Pass" status (Duration: 36.5106 Think Time: 27.0072 Wasted Time: 0.0404).
+Ending action Homepagetruck.
+Starting action Vehicledata.
+Vehicledata.c(4): Notify: Transaction "vehicle" started.
+Vehicledata.c(6): Notify: Transaction "vehicle" ended with a "Pass" status (Duration: 1.0041).
+Ending action Vehicledata.
+Starting action Insurantdata.
+Insurantdata.c(4): Notify: Transaction "vehicle" started.
+Insurantdata.c(6): Notify: Transaction "vehicle" ended with a "Pass" status (Duration: 1.0033).
+Ending action Insurantdata.
+Starting action Productdata.
+Productdata.c(4): Notify: Transaction "product" started.
+Productdata.c(6): Notify: Transaction "product" ended with a "Pass" status (Duration: 1.0058).
+Ending action Productdata.
+Starting action priceoption.
+priceoption.c(4): Notify: Transaction "price" started.
+priceoption.c(6): Notify: Transaction "price" ended with a "Pass" status (Duration: 1.0033).
+Ending action priceoption.
+Starting action sendquote.
+sendquote.c(4): Notify: Transaction "quote" started.
+sendquote.c(6): web_add_header("Accept-Language") started  	[MsgId: MMSG-26355]
+sendquote.c(6): web_add_header("Accept-Language") was successful  	[MsgId: MMSG-26392]
+sendquote.c(9): lr_think_time: 477.00 seconds (recorded think time was 159.00 seconds).
+sendquote.c(11): web_submit_data("quote.php") started  	[MsgId: MMSG-26355]
+sendquote.c(11): Connection to sampleapp.tricentis.com:443 closed after being inactive for 495 seconds, exceeding the "HTTP Keep-Alive timeout" Runtime Setting (60 seconds). URL="https://sampleapp.tricentis.com/101/tcpdf/pdfs/quote.php"  	[MsgId: MMSG-27647]
+sendquote.c(11): web_submit_data("quote.php") was successful, 23 body bytes, 220 header bytes, 11 chunking overhead bytes  	[MsgId: MMSG-26385]
+sendquote.c(58): Notify: Transaction "quote" ended with a "Pass" status (Duration: 482.3274 Think Time: 477.0106 Wasted Time: 0.0066).
+Ending action sendquote.
+Ending iteration 1.
+Ending Vuser...
+Starting action vuser_end.
+Ending action vuser_end.
+Vuser Terminated.

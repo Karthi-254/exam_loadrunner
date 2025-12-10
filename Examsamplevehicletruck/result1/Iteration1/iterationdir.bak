@@ -1,0 +1,14 @@
+[Productdata]
+SnapshotIndex=I1_Productdata
+[Insurantdata]
+SnapshotIndex=I1_Insurantdata
+[sendquote]
+SnapshotIndex=I1_sendquote
+[vuser_init]
+SnapshotIndex=I1_vuser_init
+[priceoption]
+SnapshotIndex=I1_priceoption
+[Vehicledata]
+SnapshotIndex=I1_Vehicledata
+[Homepagetruck]
+SnapshotIndex=I1_Homepagetruck

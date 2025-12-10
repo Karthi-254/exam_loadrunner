@@ -1,0 +1,78 @@
+	$(window).load(function(){
+	
+		var myvehicle = $.cookie('selectedvehicle');
+		
+		//In case user directly navigates to app site
+		if(myvehicle === undefined){
+			$.cookie('selectedvehicle', 'Automobile');
+		}
+	
+			document.getElementById("selectedinsurance").innerHTML = myvehicle + " Insurance";
+					
+			switch (myvehicle) {
+				case "Automobile":
+					$('form').idealforms(
+					'removeFields', 
+					'Payload,Total Weight,Model,Cylinder Capacity,Number of Seats Motorcycle,Right Hand Drive');
+					break;
+				case "Truck":
+					$('form').idealforms(
+					'removeFields', 
+					'Model,Cylinder Capacity,Number of Seats Motorcycle,Right Hand Drive,Merit Rating,Courtesy Car');
+					break;
+				case "Motorcycle":
+					$('form').idealforms(
+					'removeFields', 
+					'Payload,Total Weight,Fuel Type,License Plate Number,Number of Seats,Right Hand Drive,Merit Rating,Courtesy Car');
+					break;
+				case "Camper":
+					$('form').idealforms(
+					'removeFields', 
+					'Model,Cylinder Capacity,Number of Seats Motorcycle,Merit Rating,Courtesy Car');
+					break;
+			};
+			
+			
+		/*
+		###############################################
+		##IDs and names which can't be added via HTML##
+		###############################################
+		*/
+		$("#picturecontainer + DIV INPUT").attr({
+			name : "Picture",
+			id : "picture"
+		});
+		
+		$("#picturecontainer + DIV BUTTON").attr({
+			name : "Open",
+			id : "open"
+		});
+		
+		jQuery("#idealsteps-nav A").each(function(i){
+			$(this).attr("id", $(this).justtext().replace(/\s/g, '').toLowerCase());
+			$(this).attr("name", $(this).justtext());
+		});
+		
+		/*
+		##########################################################################
+		##Helping Tosca so it no TAB sendKey is necessary after datepicker input##
+		##########################################################################
+		*/
+		$("html").on("keydown", ".datepicker", function(){
+			$(".datepicker").datepicker("hide");
+		});
+		
+		/*
+		###################################################################################################
+		##Setting additional attributes of calender opening buttons which are created by framework script##
+		###################################################################################################
+		*/
+		$('.ui-datepicker-trigger').each(function(i){
+			var text = 'Open ' + $(this).prev().attr('name') + ' Calender';
+			$(this).attr('name', text);
+			$(this).attr('title', text);
+			$(this).attr('id', text.replace(/\s/g, '').toLowerCase());
+		});
+		
+		return;
+	});

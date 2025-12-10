@@ -1,0 +1,526 @@
+function initcalculation() {
+	
+		var array = [
+			'Make',
+			'Model',
+			'Cylinder Capacity',
+			'[kW]',
+			'Date of Manufacture',
+			'Number of Seats',
+			'Number of Seats Motorcycle',
+			'Fuel Type',
+			'Payload',
+			'Total Weight',
+			'List Price',
+			'Annual Mileage',
+			'First Name',
+			'Last Name',
+			'Date of Birth',
+			'Country',
+			'Zip Code',
+			'Occupation',
+			'Hobbies',
+			'Start Date',
+			'Insurance Sum',
+			'Merit Rating',
+			'Damage Insurance',
+			'Optional Products[]',
+			'Courtesy Car'
+			];
+		
+		var invalidfields = false;
+		var form = $('form.idealforms');
+		
+			jQuery.each( array, function( i ) {
+			
+				if (!form.idealforms('is:valid',this)) {
+					invalidfields = true;
+					$('#pricePlans').hide();
+					$('#sendQuoteForm').hide();
+					$('.xLoader').show();
+					form.idealforms("reset", "Select Option");
+					$("#quote-container").hide();
+					return false;
+				};
+				
+			});
+			
+			if (!invalidfields) {
+				if(form.idealforms('is:valid', 'Select Option')){
+					$('#sendQuoteForm').show();
+					$('#xLoaderQuote').hide();
+				}
+				$('#pricePlans').show();
+				$('#xLoaderPrice').hide();
+				calculatesum();
+			};
+			
+		return;
+};
+
+function localizeNumber(number, localization){
+	return number.toLocaleString(localization, {minimumFractionDigits: 2, maximumFractionDigits: 2});
+}
+
+function calculatesum() {//Gross Value
+
+		var sum	= computeautomobileliability() + computepremiumtax() + computecoverage() + computelegaldefenseinsurance();
+	
+			//===== Show Price Table Options ===================//
+			
+		var localization = "en-US";
+			
+			$( 'span[name=outpremium]' ).each(function( i ) {
+				if (i == 0) this.innerHTML = localizeNumber(Math.floor((sum*1.2*109/100)/12), localization);
+				if (i == 1) this.innerHTML = localizeNumber(Math.floor((sum*1.2*107/100)/4), localization);
+				if (i == 2) this.innerHTML = localizeNumber(Math.floor((sum*1.2*105/100)/2), localization);
+				if (i == 3) this.innerHTML = localizeNumber(Math.floor(sum*1.2), localization);
+			});		
+};
+
+function generatequotenumber() {
+
+		var num0 = Math.ceil(10000*Math.random());
+		var num1 = num0 + 100;
+		var num2 = 1000+Math.ceil(num1/1234);
+		var num3 = num2 + "0" + num1;
+		
+		return num3;
+};
+
+function computelegaldefenseinsurance(){
+
+		var ldi;
+		var myvehicle				= $.cookie('selectedvehicle');
+		var LegalDefenseInsurance	= $( "#LegalDefenseInsurance" ).is(':checked');
+		
+			if(LegalDefenseInsurance == true){
+			
+				if (myvehicle == "Motorcycle") {
+					var numberofseats = $( "#numberofseatsmotorcycle" ).val();
+				}else{
+					var numberofseats = $( "#numberofseats" ).val();
+				};
+				ldi = 92.3*numberofseats;
+				
+			}else{
+				ldi = 0.00;
+			};
+			
+		return ldi;
+};
+
+function computecoverage(){
+
+		var factorKW;
+		var pdi;
+		
+		var mileageperyear		= $( "#annualmileage" ).val();
+		var listprice			= $( "#listprice" ).val();
+		var engineperformance	= $( "#engineperformance" ).val();
+		var damageinsurance		= $( "#damageinsurance" ).val();
+		var Speeding			= $( "#Speeding" ).is(':checked');
+		
+			if(engineperformance <= 100){
+					factorKW = 3;
+				}else if(engineperformance <= 150){
+					factorKW = 5;
+				}else if(engineperformance <= 200){
+					factorKW = 7;
+				}else if(engineperformance <= 1000){
+					factorKW = 9;
+				}else{
+					factorKW = 10;
+			};
+			
+			switch(damageinsurance){
+				case 'Full Coverage':
+					pdi = (mileageperyear/20000)*(listprice/1000)*factorKW*1.35;
+					break;
+				case 'Partial Coverage':
+					pdi = (mileageperyear/20000)*(listprice/1000)*factorKW*1.00;
+					break;
+				case 'No Coverage':
+					pdi = 0.00;
+					break;
+			};
+			
+			if(Speeding == true){
+				pdi = pdi*1.75;
+			};
+			
+		return pdi;
+};
+
+function computepremiumtax(){
+
+		var myvehicle			= $.cookie('selectedvehicle');
+		var engineperformance	= $( "#engineperformance" ).val();
+		var pt					= (engineperformance-24)*0.55;
+		
+				if(pt > 160){
+					pt = 160;
+				}else if (pt < 5){
+					pt = 5;
+				};
+				
+		return pt*12.00;
+};
+
+function computeautomobileliability() {//Gross Value
+
+		var al;
+		
+		var myvehicle 				= $.cookie('selectedvehicle');
+		
+		var insurancesum			= $( "#insurancesum" ).val();
+		var model					= $( "#model" ).val();
+		var cylindercapacity		= $( "#cylindercapacity" ).val();
+		var payload					= $( "#payload" ).val();
+		var totalweight				= $( "#totalweight" ).val();
+		var dateofmanufacture		= $( "#dateofmanufacture" ).val();
+		var fuel					= $( "#fuel" ).val();
+		var EuroProtection			= $( "#EuroProtection" ).is(':checked');
+		var occupation				= $( "#occupation" ).val();
+		var meritrating				= $( "#meritrating" ).val();
+		var country					= $( "#country" ).val();
+		var courtesycar				= $( "#courtesycar" ).val();
+		
+			//===== Insurance Sum ===============================//
+		
+			al = 250 * (100 + (insurancesum/1000000 - 7)*1.5 )/100;
+			
+			//===== Vehicle Type ===============================//
+			
+			switch(myvehicle){
+				case 'Automobile':
+					al = al*1.00;
+					break;
+				case 'Motorcycle':
+					al = al*0.65;
+					break;
+				case 'Truck':
+					al = al*1.85;
+					break;
+				case 'Camper':
+					al = al*1.35;
+					break;
+			};
+			
+			//===== Motorcycle Model ===========================//
+			
+			if (myvehicle == "Motorcycle") {
+				switch(model){
+					case 'Scooter':
+						al = al*0.70;
+						break;
+					case 'Three-Wheeler':
+						al = al*0.80;
+						break;
+					case 'Moped':
+						al = al*0.90;
+						break;
+					case 'Motorcycle':
+						al = al*1.00;
+						break;
+				};
+			};
+			
+			//===== Cylinder Capacity ==========================//
+			
+			if (myvehicle == "Motorcycle") {
+			
+				if(cylindercapacity <= 50){
+					al = al*0.80;
+				}else if(cylindercapacity > 50 &&	cylindercapacity <= 125){
+					al = al*0.95;
+				}else if(cylindercapacity > 125 &&	cylindercapacity <= 500){
+					al = al*1.00;
+				}else if(cylindercapacity > 500 &&	cylindercapacity <= 750){
+					al = al*1.10;
+				}else if(cylindercapacity > 750){
+					al = al*1.50;
+				};
+				
+			};
+			
+			//=====Payload & Total Weight=======================//
+			
+			if(myvehicle == "Truck" || myvehicle == "Camper"){
+			
+				if(payload<=500){
+						al = al*0.80;
+					}else if(payload > 500	&&	payload	<= 1000){
+						al = al*0.95;
+					}else if(payload > 1000	&&	payload	<= 5000){
+						al = al*0.80;
+					}else if(payload > 5000	&&	payload	<= 10000){
+						al = al*1.00;
+					}else if(payload > 10000){
+						al = al*1.30;
+				};
+				
+				if(totalweight <= 5000){
+						al = al*0.95;
+					}else if(totalweight > 5000 && totalweight <= 10000){
+						al = al*1.00;
+					}else if(totalweight > 10000){
+						al = al*1.30;
+				};
+				
+			};
+			
+			//===== Date of Manufacture ========================//
+			
+			var nowadays = new Date();
+			var CurrentYear = nowadays.getFullYear();
+			var GivenDate = dateofmanufacture.split("/");
+			
+			if(GivenDate[2] >= CurrentYear - 6){
+					al = al*1.00;
+				}else if(GivenDate[2] >= CurrentYear - 11){
+					al = al*1.10;
+				}else if(GivenDate[2] >= CurrentYear - 16){
+					al = al*1.30;
+				}else if(GivenDate[2] >= CurrentYear - 21){
+					al = al*1.50;
+				}else{
+					al = al*1.70;
+			};
+			
+			//===== Fuel Type ==================================//
+			
+			switch(fuel){
+				case 'Electric Power':
+					al = al*1.15;
+					break;
+				case 'Gas':
+					al = al*1.10;
+					break;
+				case 'Petrol':
+					al = al*1.05;
+					break;
+				case 'Diesel':
+					al = al*1.00;
+					break;
+				case 'Other':
+					al = al*1.20;
+					break;
+			};
+			
+			//===== Optional Products ==========================//
+			
+			if(EuroProtection == true){
+				al = al*1.07;
+			};
+			
+			//===== Occupation =================================//
+			
+			switch(occupation){
+				case 'Employee':
+					al = al*1.00;
+					break;
+				case 'Public Official':
+					al = al*0.90;
+					break;
+				case 'Farmer':
+					al = al*1.10;
+					break;
+				case 'Selfemployed':
+					al = al*1.15;
+					break;
+				case 'Unemployed':
+					al = al*1.20;
+					break;
+			};
+			
+			//===== Merit Rating ===============================//
+			
+			if (myvehicle == "Automobile") {
+			
+				var bonmal = 100;
+				switch(meritrating){
+					case 'Super Bonus':
+						bonmal = 35;
+						break;
+					case 'Bonus 1':
+						bonmal = 40;
+						break;
+					case 'Bonus 2':
+						bonmal = 45;
+						break;
+					case 'Bonus 3':
+						bonmal = 50;
+						break;
+					case 'Bonus 4':
+						bonmal = 55;
+						break;
+					case 'Bonus 5':
+						bonmal = 60;
+						break;
+					case 'Bonus 6':
+						bonmal = 65;
+						break;
+					case 'Bonus 7':
+						bonmal = 75;
+						break;
+					case 'Bonus 8':
+						bonmal = 85;
+						break;
+					case 'Bonus 9':
+						bonmal = 95;
+						break;
+					case 'Malus 10':
+						bonmal = 130;
+						break;
+					case 'Malus 11':
+						bonmal = 130;
+						break;
+					case 'Malus 12':
+						bonmal = 160;
+						break;
+					case 'Malus 13':
+						bonmal = 160;
+						break;
+					case 'Malus 14':
+						bonmal = 190;
+						break;
+					case 'Malus 15':
+						bonmal = 190;
+						break;
+					case 'Malus 16':
+						bonmal = 220;
+						break;
+					case 'Malus 17':
+						bonmal = 220;
+						break;
+				};
+				al = al * bonmal/100;
+			};
+			
+			//===== Country ====================================//
+			
+			switch(country){
+				case 'Austria':
+					al = al*1.20;
+					break;
+				case 'Germany':
+					al = al*1.25;
+					break;
+				case 'Switzerland':
+					al = al*1.30;
+					break;
+				default:
+					al = al*1.35;
+					break;
+			};
+			
+			//===== Courtesy Car ===============================//
+			
+			switch(courtesycar){
+				case 'No':
+					al = al;
+					break;
+				case 'Yes':
+					al = al + 100;
+					break;
+			};
+			
+		return al;
+};
+
+
+function setQuoteType(type){
+		$("#quotetype").val(type);
+}
+
+var loadingText = 'Loading... ';
+var loadingWrapper = '<label title="Loading PDF" id="LoadingPDF" name="Loading PDF" class="isloading-wrapper">%text%<i class="fa fa-spin fa-cog"></i></label>';
+
+
+$("html").on("click", "#sendemail", function(){
+
+	var insurance_form = $("form.idealforms");
+
+	if(insurance_form.idealforms("is:valid")){
+
+		setQuoteType($(this).attr("data-type"));
+
+		$.isLoading({ 
+			text:	loadingText, 
+			tpl:	loadingWrapper
+		});
+			
+		setTimeout(function(){ 
+		
+			$.isLoading("hide");
+			$.ajax({
+				   type: 'POST',
+				   url: 'tcpdf/pdfs/quote.php',
+				   data: $("#insurance-form").serialize(),
+				   success: function(data){
+						if(data.substr(0,3) != "Suc"){
+							swal(
+								{
+									title: "Sending e-mail failed!",
+									text: "\nProbably you are running the application locally and have no e-mail server installed.\nWould you like to visit our hosted Insurance Calculator to test the e-mail functionality?",
+									type: "error",
+									showCancelButton: true,
+									confirmButtonColor: "#9eb215",
+									confirmButtonText: "Yes",
+									cancelButtonText: "No",
+									closeOnConfirm: true,
+									closeOnCancel: true 
+								},
+								function(isConfirm){
+									if (isConfirm) { 
+										window.open('http://sampleapp.tricentis.com/', '_blank');
+									}
+								}
+							)
+						}					
+						else{
+							swal("Sending e-mail success!", null, "success");
+						}
+				   }
+				 });
+		}, 8000 );
+
+		e.preventDefault();	
+	}
+	else{
+		swal({
+			title: 	"Not finished yet...", 
+			text: 	"There is still some data missing!",
+			type:	"warning"
+			},
+			function(){
+				insurance_form.idealforms('focusFirstInvalid');
+			}
+			)
+	}
+});
+
+
+$("html").on("click", ".create-quote", function(){
+
+	setQuoteType($(this).attr("data-type"));
+	
+	$.isLoading({ 
+		text:	loadingText, 
+		tpl:	loadingWrapper
+	});
+			
+	setTimeout(function(){ 
+		
+		$("#insurance-form").submit();
+		$.isLoading("hide");
+	}, 8000 );
+	
+});
+
+$("html").on("click", ".choosePrice", function(){
+
+	$("#pricesum").val($("#" + $(this).children(':eq(0)').attr("id") + "_price").text());
+
+});

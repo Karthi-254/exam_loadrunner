@@ -1,0 +1,919 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0,maximum-scale=1">
+
+    <title>Enter Vehicle Data</title>
+    <link rel="icon" href="images/tosca.ico" type="image/ico" />
+
+    <!-- Loading third party fonts -->
+    <!--<link href="fonts/roboto/roboto-condensed.css" rel="stylesheet" type="text/css">-->
+    <link href="layout/fonts/awesome/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href="layout/fonts/lineo/style.css" rel="stylesheet" type="text/css">
+
+    <!-- Loading css files -->
+    <link rel="stylesheet" href="forms/css/normalize.css">
+    <link rel="stylesheet" href="forms/css/jquery.idealforms.css">
+    <link rel="stylesheet" href="alerts/dist/sweetalert.css">
+    <!--<link rel="stylesheet" href="tables/pricingtable.css">-->
+    <link rel="stylesheet" href="loader/xloader.css">
+    <link rel="stylesheet" href="layout/css/style.css?v3">
+	<link rel="stylesheet" href="hexagons/css/hexagons.css">
+
+
+
+</head>
+<body>
+    <div id="site-content">
+	
+        			<header class="site-header">
+				<div class="top-header">
+					<div class="container">
+						<a href="index.php" id="branding" name="Logo">
+							<img id="tricentis_logo" src="images/logo.png" alt="Tricentis Logo" title="Tricentis Logo" name="Tricentis Logo" class="logo">
+							<div class="logo-text">
+								<h1 id="app_sub_title" class="site-title">Vehicle Insurance Application</h1>
+								<small id="app_version" class="description">This is a sample application, Version 1.0.1</small>
+							</div>
+						</a>
+					
+						<div class="right-section pull-right">
+					
+							<form action="javascript:gotosupport();" class="search-form">
+								<a id="visitsupport" title="Visit Support" name="Visit Support" target="_blank" href="https://support.tricentis.com"><i class="fa fa-life-ring"></i> Visit Support!</a>
+								<input 	id="search_form" name="Search Support" type="text" placeholder="Search Support...">
+								<button id="search_button" name="Go Search Support" title="Go Search Support" type="submit"><i class="fa fa-search"></i><!--<img src="images/icon-search.png" alt="">--></button>
+							</form>
+						</div>
+					</div>
+				</div>
+
+				<div class="bottom-header">
+					<div class="container">
+						<div class="main-navigation">
+							<button type="button" class="menu-toggle"><i class="fa fa-bars"></i></button>
+							<ul class="menu">
+								<li class="menu-item"><a id="nav_automobile" name="Navigation Automobile" href="#" onclick="gotoapp('Automobile');">Automobile</a></li>
+								<li class="menu-item"><a id="nav_truck" name="Navigation Truck" href="#" onclick="gotoapp('Truck');">Truck</a></li>
+								<li class="menu-item"><a id="nav_motorcycle" name="Navigation Motorcycle" href="#" onclick="gotoapp('Motorcycle');">Motorcycle</a></li>
+								<li class="menu-item"><a id="nav_camper" name="Navigation Camper" href="#" onclick="gotoapp('Camper');">Camper</a></li>
+							</ul>
+						</div>
+						
+						<div class="social-links">
+							<a id="downloadtrial" name="Download Trial" title="Download Trial" href="http://www.tricentis.com/tricentis-tosca-testsuite/tosca-testsuite-trial/" target="_blank">Request Demo</a>						
+							<!--<a id="nav_facebook" class="social_link" name="Facebook" title="Facebook" target="_blank" href="https://www.facebook.com/TRICENTIS"><i class="fa fa-facebook"></i></a>
+							<a id="nav_twitter"	class="social_link" name="Twitter" title="Twitter" target="_blank" href="https://twitter.com/Tricentis"><i class="fa fa-twitter"></i></a>
+							<a id="nav_google" class="social_link" name="Google" title="Google" target="_blank" href="https://plus.google.com/108151335013813449490/posts"><i class="fa fa-google-plus"></i></a>-->
+						</div>
+						
+						<div class="mobile-navigation"></div>
+					</div>
+				</div>
+				
+			</header> 
+
+        <main class="main-content">
+            <div class="breadcrumbs">
+                <div class="container">
+                    <a id="nav_home" name="Navigation Home" href="index.php">Home</a>
+                    <span id="selectedinsurance"></span>
+                </div>
+            </div>
+        </main>
+
+        <div class="page">
+            <div class="fullwidth-block">
+                <div class="container">
+                    <div class="idealsteps-container">
+                        <nav id="idealsteps-nav" name="Insurance Navigation" class="idealsteps-nav"></nav>
+                        <form action="tcpdf/pdfs/quote.php" method="post" novalidate autocomplete="off" id="insurance-form" target="_blank" name="insurance-form" class="idealforms">
+                            <div class="idealsteps-wrap">
+
+                                <!-- Step 1 -->
+                                <section class="idealsteps-step">
+                                    <div class="field">
+                                        <label class="main">Make
+										</label>
+                                        <select id="make" name="Make">
+                                            <option value="default">&ndash; please select &ndash;</option>
+                                            <option value="Audi">Audi</option>
+                                            <option value="BMW">BMW</option>
+                                            <option value="Ford">Ford</option>
+                                            <option value="Honda">Honda</option>
+                                            <option value="Mazda">Mazda</option>
+                                            <option value="Mercedes Benz">Mercedes Benz</option>
+                                            <option value="Nissan">Nissan</option>
+                                            <option value="Opel">Opel</option>
+                                            <option value="Porsche">Porsche</option>
+                                            <option value="Renault">Renault</option>
+                                            <option value="Skoda">Skoda</option>
+                                            <option value="Suzuki">Suzuki</option>
+                                            <option value="Toyota">Toyota</option>
+                                            <option value="Volkswagen">Volkswagen</option>
+                                            <option value="Volvo">Volvo</option>
+                                        </select>
+                                        <span class="error"></span>
+                                    </div>
+									
+                                    <div class="field">
+                                        <label class="main">Model</label>
+                                        <select id="model" name="Model">
+                                            <option value="default">&ndash; please select &ndash;</option>
+                                            <option value="Scooter">Scooter</option>
+                                            <option value="Three-Wheeler">Three-Wheeler</option>
+                                            <option value="Moped">Moped</option>
+                                            <option value="Motorcycle">Motorcycle</option>
+                                        </select>
+                                        <span class="error"></span>
+                                    </div>
+                                    <div class="field">
+                                        <label class="main">Cylinder Capacity [ccm]</label>
+                                        <input id="cylindercapacity" name="Cylinder Capacity" type="text">
+                                        <span class="error"></span>
+                                    </div>
+                                    <div class="field">
+                                        <label class="main">Engine Performance [kW]</label>
+                                        <input id="engineperformance" name="[kW]" type="text">
+                                        <span class="error"></span>
+                                    </div>
+                                    <div class="field">
+                                        <label class="main">Date of Manufacture</label>
+                                        <input id="dateofmanufacture" name="Date of Manufacture" type="text" placeholder="MM/DD/YYYY" class="datepicker">
+                                        <span class="error"></span>
+                                    </div>
+                                    <div class="field">
+                                        <label class="main">Number of Seats</label>
+                                        <select id="numberofseats" name="Number of Seats">
+                                            <option value="default">&ndash; please select &ndash;</option>
+                                            <option value="1">1</option>
+                                            <option value="2">2</option>
+                                            <option value="3">3</option>
+                                            <option value="4">4</option>
+                                            <option value="5">5</option>
+                                            <option value="6">6</option>
+                                            <option value="7">7</option>
+                                            <option value="8">8</option>
+                                            <option value="9">9</option>
+                                        </select>
+                                        <span class="error"></span>
+                                    </div>
+                                    <div class="field">
+                                        <label class="main">Right Hand Drive</label>
+                                        <p class="group">
+                                            <label>
+                                                <input id="righthanddriveyes" name="Right Hand Drive" type="radio" value="Yes">Yes</label>
+                                            <label>
+                                                <input id="righthanddriveno" name="Right Hand Drive" type="radio" value="No">No</label>
+                                        </p>
+                                    </div>
+                                    <div class="field">
+                                        <label class="main">Number of Seats</label>
+                                        <select id="numberofseatsmotorcycle" name="Number of Seats Motorcycle">
+                                            <option value="default">&ndash; please select &ndash;</option>
+                                            <option value="1">1</option>
+                                            <option value="2">2</option>
+                                            <option value="3">3</option>
+                                        </select>
+                                        <span class="error"></span>
+                                    </div>
+                                    <div class="field">
+                                        <label class="main">Fuel Type</label>
+                                        <select id="fuel" name="Fuel Type">
+                                            <option value="default">&ndash; please select &ndash;</option>
+                                            <option value="Petrol">Petrol</option>
+                                            <option value="Diesel">Diesel</option>
+                                            <option value="Electric Power">Electric Power</option>
+                                            <option value="Gas">Gas</option>
+                                            <option value="Other">Other</option>
+                                        </select>
+                                        <span class="error"></span>
+                                    </div>
+                                    <div class="field">
+                                        <label class="main">Payload [kg]</label>
+                                        <input id="payload" name="Payload" type="text">
+                                        <span class="error"></span>
+                                    </div>
+                                    <div class="field">
+                                        <label class="main">Total Weight [kg]</label>
+                                        <input id="totalweight" name="Total Weight" type="text">
+                                        <span class="error"></span>
+                                    </div>
+                                    <div class="field">
+                                        <label class="main">List Price [&#36;]</label>
+                                        <input id="listprice" name="List Price" type="text">
+                                        <span class="error"></span>
+                                    </div>
+                                    <div class="field">
+                                        <label class="main">License Plate Number</label>
+                                        <input id="licenseplatenumber" name="License Plate Number" type="text">
+                                        <span class="error"></span>
+                                    </div>
+                                    <div class="field">
+                                        <label class="main">Annual Mileage [mi]</label>
+                                        <input id="annualmileage" name="Annual Mileage" type="text">
+                                        <span class="error"></span>
+                                    </div>
+                                    <div class="field buttons">
+                                        <label class="main">&nbsp;</label>
+                                        <button id="nextenterinsurantdata" name="Next (Enter Insurant Data)" type="button" class="next button">Next &raquo;</button>
+                                    </div>
+                                </section>
+
+                                <!-- Step 2 -->
+
+                                <section class="idealsteps-step">
+                                    <div class="field">
+                                        <label class="main">First Name</label>
+                                        <input id="firstname" name="First Name" type="text">
+                                        <span class="error"></span>
+                                    </div>
+                                    <div class="field">
+                                        <label class="main">Last Name</label>
+                                        <input id="lastname" name="Last Name" type="text">
+                                        <span class="error"></span>
+                                    </div>
+                                    <div class="field">
+                                        <label class="main">Date of Birth</label>
+                                        <input id="birthdate" name="Date of Birth" type="text" placeholder="MM/DD/YYYY" class="datepicker">
+                                        <span class="error"></span>
+                                    </div>
+                                    <div class="field">
+                                        <label class="main">Gender</label>
+                                        <p class="group">
+                                            <label>
+                                                <input id="gendermale" name="Gender" type="radio" value="Male">Male</label>
+                                            <label>
+                                                <input id="genderfemale" name="Gender" type="radio" value="Female">Female</label>
+                                        </p>
+                                    </div>
+                                    <div class="field">
+                                        <label class="main">Street Address</label>
+                                        <input id="streetaddress" name="Street Address" type="text">
+                                        <span class="error"></span>
+                                    </div>
+                                    <div class="field">
+                                        <label class="main">Country</label>
+                                        <select id="country" name="Country">
+			                                <option value="default">&ndash; please select &ndash;</option>
+                                            <option value="Afghanistan">Afghanistan</option>
+                                            <option value="Albania">Albania</option>
+                                            <option value="Algeria">Algeria</option>
+                                            <option value="American Samoa">American Samoa</option>
+                                            <option value="Andorra">Andorra</option>
+                                            <option value="Angola">Angola</option>
+                                            <option value="Anguilla">Anguilla</option>
+                                            <option value="Antarctica">Antarctica</option>
+                                            <option value="Antigua and Barbuda">Antigua and Barbuda</option>
+                                            <option value="Argentina">Argentina</option>
+                                            <option value="Armenia">Armenia</option>
+                                            <option value="Aruba">Aruba</option>
+                                            <option value="Australia">Australia</option>
+                                            <option value="Austria">Austria</option>
+                                            <option value="Azerbaijan">Azerbaijan</option>
+                                            <option value="Bahamas">Bahamas</option>
+                                            <option value="Bahrain">Bahrain</option>
+                                            <option value="Bangladesh">Bangladesh</option>
+                                            <option value="Barbados">Barbados</option>
+                                            <option value="Belarus">Belarus</option>
+                                            <option value="Belgium">Belgium</option>
+                                            <option value="Belize">Belize</option>
+                                            <option value="Benin">Benin</option>
+                                            <option value="Bermuda">Bermuda</option>
+                                            <option value="Bhutan">Bhutan</option>
+                                            <option value="Bolivia - Plurinational State of ">Bolivia - Plurinational State of </option>
+                                            <option value="Bonaire - Sint Eustatius and Saba">Bonaire - Sint Eustatius and Saba</option>
+                                            <option value="Bosnia and Herzegovina">Bosnia and Herzegovina</option>
+                                            <option value="Botswana">Botswana</option>
+                                            <option value="Bouvet Island">Bouvet Island</option>
+                                            <option value="Brazil">Brazil</option>
+                                            <option value="British Indian Ocean Territory">British Indian Ocean Territory</option>
+                                            <option value="Brunei Darussalam">Brunei Darussalam</option>
+                                            <option value="Bulgaria">Bulgaria</option>
+                                            <option value="Burkina Faso">Burkina Faso</option>
+                                            <option value="Burundi">Burundi</option>
+                                            <option value="Cabo Verde">Cabo Verde</option>
+                                            <option value="Cambodia">Cambodia</option>
+                                            <option value="Cameroon">Cameroon</option>
+                                            <option value="Canada">Canada</option>
+                                            <option value="Cayman Islands">Cayman Islands</option>
+                                            <option value="Central African Republic">Central African Republic</option>
+                                            <option value="Chad">Chad</option>
+                                            <option value="Chile">Chile</option>
+                                            <option value="China">China</option>
+                                            <option value="Christmas Island">Christmas Island</option>
+                                            <option value="Cocos (Keeling) Islands">Cocos (Keeling) Islands</option>
+                                            <option value="Colombia">Colombia</option>
+                                            <option value="Comoros">Comoros</option>
+                                            <option value="Congo">Congo</option>
+                                            <option value="Congo - the Democratic Republic of the">Congo - the Democratic Republic of the</option>
+                                            <option value="Cook Islands">Cook Islands</option>
+                                            <option value="Costa Rica">Costa Rica</option>
+                                            <option value="Croatia">Croatia</option>
+                                            <option value="Cuba">Cuba</option>
+                                            <option value="Curaçao">Curaçao</option>
+                                            <option value="Cyprus">Cyprus</option>
+                                            <option value="Czech Republic">Czech Republic</option>
+                                            <option value="Côte d'Ivoire">Côte d'Ivoire</option>
+                                            <option value="Denmark">Denmark</option>
+                                            <option value="Djibouti">Djibouti</option>
+                                            <option value="Dominica">Dominica</option>
+                                            <option value="Dominican Republic">Dominican Republic</option>
+                                            <option value="Ecuador">Ecuador</option>
+                                            <option value="Egypt">Egypt</option>
+                                            <option value="El Salvador">El Salvador</option>
+                                            <option value="Equatorial Guinea">Equatorial Guinea</option>
+                                            <option value="Eritrea">Eritrea</option>
+                                            <option value="Estonia">Estonia</option>
+                                            <option value="Ethiopia">Ethiopia</option>
+                                            <option value="Falkland Islands (Malvinas)">Falkland Islands (Malvinas)</option>
+                                            <option value="Faroe Islands">Faroe Islands</option>
+                                            <option value="Fiji">Fiji</option>
+                                            <option value="Finland">Finland</option>
+                                            <option value="France">France</option>
+                                            <option value="French Guiana">French Guiana</option>
+                                            <option value="French Polynesia">French Polynesia</option>
+                                            <option value="French Southern Territories">French Southern Territories</option>
+                                            <option value="Gabon">Gabon</option>
+                                            <option value="Gambia">Gambia</option>
+                                            <option value="Georgia">Georgia</option>
+                                            <option value="Germany">Germany</option>
+                                            <option value="Ghana">Ghana</option>
+                                            <option value="Gibraltar">Gibraltar</option>
+                                            <option value="Greece">Greece</option>
+                                            <option value="Greenland">Greenland</option>
+                                            <option value="Grenada">Grenada</option>
+                                            <option value="Guadeloupe">Guadeloupe</option>
+                                            <option value="Guam">Guam</option>
+                                            <option value="Guatemala">Guatemala</option>
+                                            <option value="Guernsey">Guernsey</option>
+                                            <option value="Guinea">Guinea</option>
+                                            <option value="Guinea-Bissau">Guinea-Bissau</option>
+                                            <option value="Guyana">Guyana</option>
+                                            <option value="Haiti">Haiti</option>
+                                            <option value="Heard Island and McDonald Islands">Heard Island and McDonald Islands</option>
+                                            <option value="Holy See (Vatican City State)">Holy See (Vatican City State)</option>
+                                            <option value="Honduras">Honduras</option>
+                                            <option value="Hong Kong">Hong Kong</option>
+                                            <option value="Hungary">Hungary</option>
+                                            <option value="Iceland">Iceland</option>
+                                            <option value="India">India</option>
+                                            <option value="Indonesia">Indonesia</option>
+                                            <option value="Iran - Islamic Republic of">Iran - Islamic Republic of</option>
+                                            <option value="Iraq">Iraq</option>
+                                            <option value="Ireland">Ireland</option>
+                                            <option value="Isle of Man">Isle of Man</option>
+                                            <option value="Israel">Israel</option>
+                                            <option value="Italy">Italy</option>
+                                            <option value="Jamaica">Jamaica</option>
+                                            <option value="Japan">Japan</option>
+                                            <option value="Jersey">Jersey</option>
+                                            <option value="Jordan">Jordan</option>
+                                            <option value="Kazakhstan">Kazakhstan</option>
+                                            <option value="Kenya">Kenya</option>
+                                            <option value="Kiribati">Kiribati</option>
+                                            <option value="Korea - Democratic People's Republic of">Korea - Democratic People's Republic of</option>
+                                            <option value="Korea - Republic of">Korea - Republic of</option>
+                                            <option value="Kuwait">Kuwait</option>
+                                            <option value="Kyrgyzstan">Kyrgyzstan</option>
+                                            <option value="Lao People's Democratic Republic">Lao People's Democratic Republic</option>
+                                            <option value="Latvia">Latvia</option>
+                                            <option value="Lebanon">Lebanon</option>
+                                            <option value="Lesotho">Lesotho</option>
+                                            <option value="Liberia">Liberia</option>
+                                            <option value="Libya">Libya</option>
+                                            <option value="Liechtenstein">Liechtenstein</option>
+                                            <option value="Lithuania">Lithuania</option>
+                                            <option value="Luxembourg">Luxembourg</option>
+                                            <option value="Macao">Macao</option>
+                                            <option value="Macedonia - the former Yugoslav Republic of">Macedonia - the former Yugoslav Republic of</option>
+                                            <option value="Madagascar">Madagascar</option>
+                                            <option value="Malawi">Malawi</option>
+                                            <option value="Malaysia">Malaysia</option>
+                                            <option value="Maldives">Maldives</option>
+                                            <option value="Mali">Mali</option>
+                                            <option value="Malta">Malta</option>
+                                            <option value="Marshall Islands">Marshall Islands</option>
+                                            <option value="Martinique">Martinique</option>
+                                            <option value="Mauritania">Mauritania</option>
+                                            <option value="Mauritius">Mauritius</option>
+                                            <option value="Mayotte">Mayotte</option>
+                                            <option value="Mexico">Mexico</option>
+                                            <option value="Micronesia - Federated States of">Micronesia - Federated States of</option>
+                                            <option value="Moldova - Republic of">Moldova - Republic of</option>
+                                            <option value="Monaco">Monaco</option>
+                                            <option value="Mongolia">Mongolia</option>
+                                            <option value="Montenegro">Montenegro</option>
+                                            <option value="Montserrat">Montserrat</option>
+                                            <option value="Morocco">Morocco</option>
+                                            <option value="Mozambique">Mozambique</option>
+                                            <option value="Myanmar">Myanmar</option>
+                                            <option value="Namibia">Namibia</option>
+                                            <option value="Nauru">Nauru</option>
+                                            <option value="Nepal">Nepal</option>
+                                            <option value="Netherlands">Netherlands</option>
+                                            <option value="New Caledonia">New Caledonia</option>
+                                            <option value="New Zealand">New Zealand</option>
+                                            <option value="Nicaragua">Nicaragua</option>
+                                            <option value="Niger">Niger</option>
+                                            <option value="Nigeria">Nigeria</option>
+                                            <option value="Niue">Niue</option>
+                                            <option value="Norfolk Island">Norfolk Island</option>
+                                            <option value="Northern Mariana Islands">Northern Mariana Islands</option>
+                                            <option value="Norway">Norway</option>
+                                            <option value="Oman">Oman</option>
+                                            <option value="Pakistan">Pakistan</option>
+                                            <option value="Palau">Palau</option>
+                                            <option value="Palestine - State of">Palestine - State of</option>
+                                            <option value="Panama">Panama</option>
+                                            <option value="Papua New Guinea">Papua New Guinea</option>
+                                            <option value="Paraguay">Paraguay</option>
+                                            <option value="Peru">Peru</option>
+                                            <option value="Philippines">Philippines</option>
+                                            <option value="Pitcairn">Pitcairn</option>
+                                            <option value="Poland">Poland</option>
+                                            <option value="Portugal">Portugal</option>
+                                            <option value="Puerto Rico">Puerto Rico</option>
+                                            <option value="Qatar">Qatar</option>
+                                            <option value="Romania">Romania</option>
+                                            <option value="Russian Federation">Russian Federation</option>
+                                            <option value="Rwanda">Rwanda</option>
+                                            <option value="Réunion">Réunion</option>
+                                            <option value="Saint Barthélemy">Saint Barthélemy</option>
+                                            <option value="Saint Helena - Ascension and Tristan da Cunha">Saint Helena - Ascension and Tristan da Cunha</option>
+                                            <option value="Saint Kitts and Nevis">Saint Kitts and Nevis</option>
+                                            <option value="Saint Lucia">Saint Lucia</option>
+                                            <option value="Saint Martin (French part)">Saint Martin (French part)</option>
+                                            <option value="Saint Pierre and Miquelon">Saint Pierre and Miquelon</option>
+                                            <option value="Saint Vincent and the Grenadines">Saint Vincent and the Grenadines</option>
+                                            <option value="Samoa">Samoa</option>
+                                            <option value="San Marino">San Marino</option>
+                                            <option value="Sao Tome and Principe">Sao Tome and Principe</option>
+                                            <option value="Saudi Arabia">Saudi Arabia</option>
+                                            <option value="Senegal">Senegal</option>
+                                            <option value="Serbia">Serbia</option>
+                                            <option value="Seychelles">Seychelles</option>
+                                            <option value="Sierra Leone">Sierra Leone</option>
+                                            <option value="Singapore">Singapore</option>
+                                            <option value="Sint Maarten (Dutch part)">Sint Maarten (Dutch part)</option>
+                                            <option value="Slovakia">Slovakia</option>
+                                            <option value="Slovenia">Slovenia</option>
+                                            <option value="Solomon Islands">Solomon Islands</option>
+                                            <option value="Somalia">Somalia</option>
+                                            <option value="South Africa">South Africa</option>
+                                            <option value="South Georgia and the South Sandwich Islands">South Georgia and the South Sandwich Islands</option>
+                                            <option value="South Sudan">South Sudan</option>
+                                            <option value="Spain">Spain</option>
+                                            <option value="Sri Lanka">Sri Lanka</option>
+                                            <option value="Sudan">Sudan</option>
+                                            <option value="Suriname">Suriname</option>
+                                            <option value="Svalbard and Jan Mayen">Svalbard and Jan Mayen</option>
+                                            <option value="Swaziland">Swaziland</option>
+                                            <option value="Sweden">Sweden</option>
+                                            <option value="Switzerland">Switzerland</option>
+                                            <option value="Syrian Arab Republic">Syrian Arab Republic</option>
+                                            <option value="Taiwan - Province of China">Taiwan - Province of China</option>
+                                            <option value="Tajikistan">Tajikistan</option>
+                                            <option value="Tanzania - United Republic of">Tanzania - United Republic of</option>
+                                            <option value="Thailand">Thailand</option>
+                                            <option value="Timor-Leste">Timor-Leste</option>
+                                            <option value="Togo">Togo</option>
+                                            <option value="Tokelau">Tokelau</option>
+                                            <option value="Tonga">Tonga</option>
+                                            <option value="Trinidad and Tobago">Trinidad and Tobago</option>
+                                            <option value="Tunisia">Tunisia</option>
+                                            <option value="Turkey">Turkey</option>
+                                            <option value="Turkmenistan">Turkmenistan</option>
+                                            <option value="Turks and Caicos Islands">Turks and Caicos Islands</option>
+                                            <option value="Tuvalu">Tuvalu</option>
+                                            <option value="Uganda">Uganda</option>
+                                            <option value="Ukraine">Ukraine</option>
+                                            <option value="United Arab Emirates">United Arab Emirates</option>
+                                            <option value="United Kingdom">United Kingdom</option>
+                                            <option value="United States">United States</option>
+                                            <option value="United States Minor Outlying Islands">United States Minor Outlying Islands</option>
+                                            <option value="Uruguay">Uruguay</option>
+                                            <option value="Uzbekistan">Uzbekistan</option>
+                                            <option value="Vanuatu">Vanuatu</option>
+                                            <option value="Venezuela - Bolivarian Republic of">Venezuela - Bolivarian Republic of</option>
+                                            <option value="Viet Nam">Viet Nam</option>
+                                            <option value="Virgin Islands - British">Virgin Islands - British</option>
+                                            <option value="Virgin Islands - U.S.">Virgin Islands - U.S.</option>
+                                            <option value="Wallis and Futuna">Wallis and Futuna</option>
+                                            <option value="Western Sahara">Western Sahara</option>
+                                            <option value="Yemen">Yemen</option>
+                                            <option value="Zambia">Zambia</option>
+                                            <option value="Zimbabwe">Zimbabwe</option>
+                                            <option value="Åland Islands">Åland Islands</option>
+                                        </select>
+                                        <span class="error"></span>
+                                    </div>
+                                    <div class="field">
+                                        <label class="main">Zip Code</label>
+                                        <input id="zipcode" name="Zip Code" type="text">
+                                        <span class="error"></span>
+                                    </div>
+                                    <div class="field">
+                                        <label class="main">City</label>
+                                        <input id="city" name="City" type="text">
+                                    </div>
+                                    <div class="field">
+                                        <label class="main">Occupation</label>
+                                        <select id="occupation" name="Occupation">
+                                            <option value="default">&ndash; please select &ndash;</option>
+                                            <option value="Employee">Employee</option>
+                                            <option value="Public Official">Public Official</option>
+                                            <option value="Farmer">Farmer</option>
+                                            <option value="Unemployed">Unemployed</option>
+                                            <option value="Selfemployed">Selfemployed</option>
+                                        </select>
+                                        <span class="error"></span>
+                                    </div>
+                                    <div class="field">
+                                        <label class="main">Hobbies</label>
+                                        <p class="group">
+                                            <label>
+                                                <input id="speeding" name="Hobbies" type="checkbox" value="Speeding"> Speeding</label>
+                                            <label>
+                                                <input id="bungeejumping" name="Hobbies" type="checkbox" value="BungeeJumping"> Bungee Jumping</label>
+                                            <label>
+                                                <input id="cliffdiving" name="Hobbies" type="checkbox" value="CliffDiving"> Cliff Diving</label>
+                                            <label>
+                                                <input id="skydiving" name="Hobbies" type="checkbox" value="Skydiving"> Skydiving</label>
+                                            <label>
+                                                <input id="other" name="Hobbies" type="checkbox" value="Other"> Other</label>
+                                        </p>
+                                        <span class="error"></span>
+                                    </div>
+                                    <div class="field">
+                                        <label class="main">Website</label>
+                                        <input id="website" name="Website" type="text">
+                                        <span class="error"></span>
+                                    </div>
+                                    <div class="field">
+                                        <label class="main">Picture</label>
+                                        <input id="picturecontainer" name="Picture Container" type="file" multiple>
+                                        <span class="error"></span>
+                                    </div>
+                                    <div class="field buttons">
+                                        <label class="main">&nbsp;</label>
+                                        <button id="preventervehicledata" name="Prev (Enter Vehicle Data)" type="button" class="prev">&laquo; Prev</button>
+                                        <button id="nextenterproductdata" name="Next (Enter Product Data)" type="button" class="next">Next &raquo;</button>
+                                    </div>
+                                </section>
+
+                                <!-- Step 3 -->
+                                <section class="idealsteps-step">
+                                    <div class="field">
+                                        <label class="main">Start Date</label>
+                                        <input id="startdate" name="Start Date" type="text" placeholder="MM/DD/YYYY" class="datepicker">
+                                        <span class="error"></span>
+                                    </div>
+                                    <div class="field">
+                                        <label class="main">Insurance Sum [&#36;]</label>
+                                        <select id="insurancesum" name="Insurance Sum">
+                                            <option value="default">&ndash; please select &ndash;</option>
+                                            <option value="3000000"> 3.000.000,00</option>
+                                            <option value="5000000"> 5.000.000,00</option>
+                                            <option value="7000000"> 7.000.000,00</option>
+                                            <option value="10000000"> 10.000.000,00</option>
+                                            <option value="15000000"> 15.000.000,00</option>
+                                            <option value="20000000"> 20.000.000,00</option>
+                                            <option value="25000000"> 25.000.000,00</option>
+                                            <option value="30000000"> 30.000.000,00</option>
+                                            <option value="35000000"> 35.000.000,00</option>
+                                        </select>
+                                        <span class="error"></span>
+                                    </div>
+                                    <div class="field">
+                                        <label class="main">Merit Rating</label>
+                                        <select id="meritrating" name="Merit Rating">
+                                            <option value="default">&ndash; please select &ndash;</option>
+                                            <option value="Super Bonus">Super Bonus</option>
+                                            <option value="Bonus 1">Bonus 1</option>
+                                            <option value="Bonus 2">Bonus 2</option>
+                                            <option value="Bonus 3">Bonus 3</option>
+                                            <option value="Bonus 4">Bonus 4</option>
+                                            <option value="Bonus 5">Bonus 5</option>
+                                            <option value="Bonus 6">Bonus 6</option>
+                                            <option value="Bonus 7">Bonus 7</option>
+                                            <option value="Bonus 8">Bonus 8</option>
+                                            <option value="Bonus 9">Bonus 9</option>
+                                            <option value="Malus 10">Malus 10</option>
+                                            <option value="Malus 11">Malus 11</option>
+                                            <option value="Malus 12">Malus 12</option>
+                                            <option value="Malus 13">Malus 13</option>
+                                            <option value="Malus 14">Malus 14</option>
+                                            <option value="Malus 15">Malus 15</option>
+                                            <option value="Malus 16">Malus 16</option>
+                                            <option value="Malus 17">Malus 17</option>
+                                        </select>
+                                        <span class="error"></span>
+                                    </div>
+                                    <div class="field">
+                                        <label class="main">Damage Insurance</label>
+                                        <select id="damageinsurance" name="Damage Insurance">
+                                            <option value="default">&ndash; please select &ndash;</option>
+                                            <option value="No Coverage">No Coverage</option>
+                                            <option value="Partial Coverage">Partial Coverage</option>
+                                            <option value="Full Coverage">Full Coverage</option>
+                                        </select>
+                                        <span class="error"></span>
+                                    </div>
+                                    <div class="field">
+                                        <label class="main">Optional Products</label>
+                                        <p class="group">
+                                            <label>
+                                                <input id="EuroProtection" name="Optional Products[]" type="checkbox" value="Yes">Euro Protection</label>
+                                            <label>
+                                                <input id="LegalDefenseInsurance" name="Optional Products[]" type="checkbox" value="Yes">Legal Defense Insurance</label>
+                                        </p>
+                                        <span class="error"></span>
+                                    </div>
+                                    <div class="field">
+                                        <label class="main">Courtesy Car</label>
+                                        <select id="courtesycar" name="Courtesy Car">
+                                            <option value="default">&ndash; please select &ndash;</option>
+                                            <option value="No"> No</option>
+                                            <option value="Yes"> Yes</option>
+                                        </select>
+                                        <span class="error"></span>
+                                    </div>
+                                    <div class="field buttons">
+                                        <label class="main">&nbsp;</label>
+                                        <button id="preventerinsurancedata" name="Prev (Enter Insurance Data)" type="button" class="prev">&laquo; Prev</button>
+                                        <button id="nextselectpriceoption" name="Next (Select Price Option)" type="button" class="next">Next &raquo;</button>
+                                    </div>
+                                </section>
+
+                                <!-- Step 4 -->
+                                <section class="idealsteps-step">
+
+                                    <div id="xLoaderPrice" class="xLoader" name="Loader">
+                                        <div class="audio-wave">
+                                            <span></span>
+                                            <span></span>
+                                            <span></span>
+                                            <span></span>
+                                            <span></span>
+                                        </div>
+                                        <p>Please, complete the first three steps to see the price table.</p>
+                                    </div>
+
+                                    <section id="pricePlans">
+									
+									
+									
+									 <div class="field">
+										<table id="priceTable" name="Price Table">
+											<thead>
+												<tr>
+													<th />
+													<th>Silver</th>
+													<th>Gold</th>
+													<th>Platinum</th>
+													<th>Ultimate</th>
+												</tr>
+											</thead>
+											<tbody>
+												<tr>
+													<td>Price per Year (&#36;)</td>
+													<td data-label="Silver"><span id="selectsilver_price" name="outpremium">122</span></td>
+													<td data-label="Gold"><span id="selectgold_price" name="outpremium">233</span></td>
+													<td data-label="Platinum"><span id="selectplatinum_price" name="outpremium">344</span></td>
+													<td data-label="Ultimate"><span id="selectultimate_price" name="outpremium">455</span></td>
+												</tr>
+												<tr>
+													<td>Online Claim</td>
+													<td data-label="Silver">No</td>
+													<td data-label="Gold">Submit</td>
+													<td data-label="Platinum">Submit</td>
+													<td data-label="Ultimate">Submit</td>
+												</tr>
+												<tr>
+													<td>Claims Discount (%)</td>
+													<td data-label="Silver">No</td>
+													<td data-label="Gold">2</td>
+													<td data-label="Platinum">5</td>
+													<td data-label="Ultimate">10</td>
+												</tr>
+												<tr>
+													<td>Worldwide Cover</td>
+													<td data-label="Silver">No</td>
+													<td data-label="Gold">Limited</td>
+													<td data-label="Platinum">Limited</td>
+													<td data-label="Ultimate">Unlimited</td>
+												</tr>
+											</tbody>
+											<tfoot>
+												<tr>
+													<th>Select Option</th>
+													<input type="hidden" name="Price Sum" id="pricesum"></input>
+													<th colspan="4" class="group">
+														<label class="choosePrice"><input id="selectsilver" name="Select Option" type="radio" value="Silver"></label>
+														<label class="choosePrice"><input id="selectgold" name="Select Option" type="radio" value="Gold"></label>
+														<label class="choosePrice"><input id="selectplatinum" name="Select Option" type="radio" value="Platinum"></label>
+														<label class="choosePrice"><input id="selectultimate" name="Select Option" type="radio" value="Ultimate"></label>
+													</th>
+												</tr>
+											</tfoot>
+										</table>
+										<span class="error"></span>
+										</div>
+													
+										<input type="hidden" name="Quote Type" value="I" id="quotetype"></input>	
+													
+										<div id="quote-container">
+											<div id="quote-sub-container">
+												<div class="row margin-top-20">
+													<div class="col-lg-5 col-md-5 col-xs-12">
+														<div class="quote-table">
+															<div class="quote-cell hb-sm-inline">
+																<a class="hb-xxs-margin create-quote" id="viewquote" data-type="I" title="View Quote" name="View Quote"><span class="hb hb-sm inv spin-icon"><i class="fa fa-file-pdf-o"></i></span></a>
+															</div>
+															<div class="quote-cell big-quote-cell">View Quote</div>
+														</div>
+													</div>
+													
+													<div class="col-lg-6 col-md-6 col-xs-12">
+														<div class="quote-table">
+															<div class="quote-cell hb-sm-inline">
+																<a class="hb-xxs-margin create-quote" id="downloadquote" data-type="D" title="Download Quote" name="Download Quote"><span class="hb hb-sm inv spin-icon"><i class="fa fa-file-pdf-o"></i></span></a>
+															</div>
+															<div class="quote-cell big-quote-cell">Download Quote</div>
+														</div>
+													</div>
+													
+												</div>
+											</div>
+										<div class="field buttons margin-top-20">
+											<button id="preventerproductdata" name="Prev (Enter Product Data)" type="button" class="prev">&laquo; Prev</button>
+											<button id="nextsendquote" name="Next (Send Quote)" type="button" class="next">Next &raquo;</button>
+											</div>
+										</div>
+
+	                                    </section>
+                                </section>
+
+                                <!-- Step 5 -->
+								
+								<section class="idealsteps-step">
+									
+									<div id="xLoaderQuote" class="xLoader" name="Loader">
+                                        <div class="audio-wave">
+                                            <span></span>
+                                            <span></span>
+                                            <span></span>
+                                            <span></span>
+                                            <span></span>
+                                        </div>
+                                        <p>Please, select a price option to send the quote.</p>
+									</div>
+									
+								<section id="sendQuoteForm">
+									
+                                    <div class="field">
+                                        <label class="main">E-Mail</label>
+                                        <input id="email" name="E-Mail" type="email">
+                                        <span class="error"></span>
+                                    </div>
+                                    <div class="field">
+                                        <label class="main">Phone</label>
+                                        <input id="phone" name="Phone" type="text">
+                                        <span class="error"></span>
+                                    </div>
+                                    <div class="field">
+                                        <label class="main">Username</label>
+                                        <input id="username" name="Username" type="text">
+                                        <span class="error"></span>
+                                    </div>
+                                    <div class="field">
+                                        <label class="main">Password</label>
+                                        <input id="password" name="Password" type="password">
+                                        <span class="error"></span>
+                                    </div>
+                                    <div class="field">
+                                        <label class="main">Confirm Password</label>
+                                        <input id="confirmpassword" name="Confirm Password" type="password">
+                                        <span class="error"></span>
+                                    </div>
+                                    <div class="field">
+                                        <label class="main">Comments</label>
+                                        <textarea id="Comments" name="Comments" cols="50" rows="5"></textarea>
+                                        <span class="error"></span>
+                                    </div>
+                                    <div class="field buttons">
+                                        <label class="main">&nbsp;</label>
+                                        <button id="prevselectpriceoption" name="Prev (Select Price Option)" type="button" class="prev">&laquo; Prev</button>
+                                        <button id="sendemail" name="Send E-Mail" data-type="S" type="button">&laquo; Send &raquo;</button>
+                                    </div>
+									
+									
+											<div id="finished-container" class="row">
+												<div id="finished-sub-container">
+													<div class="col-lg-5 col-lg-offset-1 col-md-5 col-md-offset-1">
+														<div class="quote-table">
+															<div class="quote-cell hb-xs-inline">
+																<a href="index.php" id="backmain" title="Go to Main Page" name="Go to Main Page" class="hb-xxs-margin" href=""><span class="hb hb-xs inv spin-icon"><i class="fa fa-home"></i></span></a>
+															</div>
+															<div class="quote-cell">Main page</div>
+														</div>
+													</div>
+													<div class="col-lg-5 col-lg-offset-1 col-md-5 col-md-offset-1">
+														<div class="quote-table">
+															<div class="quote-cell hb-xs-inline">
+																<a href="#" id="newautomobileinsurance" title="New Automobile Insurance" name="New Automobile Insurance" onclick="gotoapp('Automobile');" class="hb-xxs-margin" href=""><span class="hb hb-xs inv spin-icon"><i class="fa fa-car"></i></span></a>
+															</div>
+															<div class="quote-cell">New Automobile Insurance</div>
+														</div>
+													</div>
+													
+													<div class="col-lg-5 col-lg-offset-1 col-md-5 col-md-offset-1">
+														<div class="quote-table">
+															<div class="quote-cell hb-xs-inline">
+																<a href="#" id="newtruckinsurance" title="New Truck Insurance" name="New Truck Insurance" onclick="gotoapp('Truck');" class="hb-xxs-margin" href=""><span class="hb hb-xs inv spin-icon"><i class="fa fa-truck"></i></span></a>
+															</div>
+															<div class="quote-cell">New Truck Insurance</div>
+														</div>
+													</div>
+													<div class="col-lg-5 col-lg-offset-1 col-md-5 col-md-offset-1">
+														<div class="quote-table">
+															<div class="quote-cell hb-xs-inline">
+																<a href="#" id="newmotorcycleinsurance" title="New Motorcycle Insurance" name="New Motorcycle Insurance" onclick="gotoapp('Motorcycle');" class="hb-xxs-margin" href=""><span class="hb hb-xs inv spin-icon"><i class="fa fa-motorcycle"></i></span></a>
+															</div>
+															<div class="quote-cell">New Motorcycle Insurance</div>
+														</div>
+													</div>
+													<div class="col-lg-5 col-lg-offset-1 col-md-5 col-md-offset-1">
+														<div class="quote-table">
+															<div class="quote-cell hb-xs-inline">
+																<a href="#" id="newcamperinsurance" title="New Camper Insurance" name="New Camper Insurance" onclick="gotoapp('Camper');" class="hb-xxs-margin" href=""><span class="hb hb-xs inv spin-icon"><i class="fa fa-bus"></i></span></a>
+															</div>
+															<div class="quote-cell">New Camper Insurance</div>
+														</div>
+													</div>
+												</div>
+											</div>
+										
+											        </section>			
+									
+                                </section>
+
+                            <span id="invalid"></span>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+       <div class="site-footer">
+				<div class="bottom-footer">
+					<div class="container">
+						<nav class="footer-navigation">
+							<a id="tricentis_about" name="About"	href="http://www.tricentis.com/about">About</a>
+							<a id="tricentis_products" name="Products" href="http://www.tricentis.com/tricentis-tosca-testsuite">Products</a>
+							<a id="tricentis_events" name="Events" href="http://www.tricentis.com/events-webinars">Events & Webinars</a>
+							<a id="tricentis_resources" name="Resources" href="http://www.tricentis.com/resources">Resources</a>
+							<a id="tricentis_services" name="Services" href="http://www.tricentis.com/services">Services</a>
+						</nav>
+						
+						<div>
+							<a id="nav_facebook" class="social-link" name="Facebook" title="Facebook" target="_blank" href="https://www.facebook.com/TRICENTIS"><i class="fa fa-facebook"></i></a>
+							<a id="nav_twitter"	class="social-link" name="Twitter" title="Twitter" target="_blank" href="https://twitter.com/Tricentis"><i class="fa fa-twitter"></i></a>
+							<a id="nav_google" class="social-link" name="Google" title="Google" target="_blank" href="https://plus.google.com/108151335013813449490/posts"><i class="fa fa-google-plus"></i></a>
+						</div>
+						
+						<div class="colophon">Copyright 2021 by Tricentis GmbH. All rights reserved.</div>
+					</div>
+				</div>
+			</div>    </div>
+
+    <script src="jquery/jquery-1.12.0.min.js"></script>
+    <script src="jquery/jquery-ui-1.10.3.min.js"></script>
+	<script src="isLoading/isLoading.min.js"></script>
+	
+    <script src="layout/js/app.js"></script>
+	<script src="forms/js/out/jquery.idealforms.js"></script>
+	
+    <script src="forms/customization/configuration.js"></script>
+    <script src="forms/customization/costumrules.js"></script>
+    <script src="forms/customization/costumerrors.js"></script>
+    <script src="forms/customization/calculations.js"></script>
+    <script src="forms/customization/makeapp.js"></script>
+	<script src="hexagons/js/hexagons.js"></script>
+
+
+    <script src="alerts/dist/sweetalert.min.js"></script>
+    <script src="cookies/jquery.cookie.js"></script>
+    <script src="navigation/navigation.js"></script>
+    <script src="tables/pricetableclickhandler.js"></script>
+
+    <!--<script src="pdfgeneration/filesaver/filesaver.js"></script>-->
+    <!--<script src="pdfgeneration/ajax.js"></script>-->
+
+</body>
+
+</html>

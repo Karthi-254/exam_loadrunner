@@ -1,0 +1,21 @@
+/**
+ * Custom Rules By Ingo Philipp
+ */
+$.extend($.idealforms.rules, {
+  
+  pastdate: function(input, value) {
+	return Date.parse(value) < Date.now();
+  },
+  
+  dateinterval: function(input, value) {
+	var date1 = new Date(Date.now());
+	var date2 = new Date(Date.now());
+	return (Date.parse(value) <= date1.setFullYear(date1.getFullYear() - 18)) && (Date.parse(value) > date2.setFullYear(date2.getFullYear() - 70));
+  },
+  
+  futuredate: function(input, value) {
+	var currentdate = new Date(Date.now());
+	return Date.parse(value) >= currentdate.setMonth(currentdate.getMonth() + 1);
+  }
+  
+});

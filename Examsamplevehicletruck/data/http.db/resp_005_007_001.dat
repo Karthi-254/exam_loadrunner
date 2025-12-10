@@ -1,0 +1,55 @@
+/*
+$( 'a[class=pricebutton]' ).click( pricebuttonhandler );
+
+	function pricebuttonhandler( event ) {
+	
+		var allbuttons		= $( '*' );
+		var targetbutton	= $( event.target );
+		
+		var alltitles		= targetbutton.parents('[id=plans]').find('h2');
+		var targettitle		= targetbutton.parents('[class=plan]').find('h2');
+		
+		var allprices		= targetbutton.parents('[id=plans]').find('p');
+		var targetprice		= targetbutton.parents('[class=plan]').find('p');
+		
+		event.preventDefault();
+			
+			alltitles.removeClass( 'bestPlanTitle');
+			targettitle.addClass( 'bestPlanTitle');
+			
+			allprices.removeClass( 'bestPlanPrice');
+			targetprice.addClass( 'bestPlanPrice');
+			
+			allbuttons.removeClass( 'bestPlanButton');
+			targetbutton.addClass( 'bestPlanButton');
+			
+		return false;
+};
+*/
+
+$('.idealsteps-nav li').on("click", deselectPriceOption);
+$("INPUT[name='Select Option']").on("change", pricebuttonhandler);
+
+function deselectPriceOption(event){
+	//$("a.pricebutton").removeClass('pricebutton-active');
+	//$("#quote-container").slideUp("fast");
+}
+
+function pricebuttonhandler(event){
+	
+	/*
+	var allbuttons		= $('*');
+	var targetbutton	= $(event.target);
+		
+	event.preventDefault();
+
+	allbuttons.removeClass('pricebutton-active');
+	targetbutton.addClass('pricebutton-active');
+	*/
+	
+	$("#quote-container").slideDown("slow");
+		
+	return false;
+};
+
+

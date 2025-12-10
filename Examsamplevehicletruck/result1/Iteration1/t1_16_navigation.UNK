@@ -1,0 +1,11 @@
+function gotoapp(vehicle) {
+
+	$.cookie('selectedvehicle', vehicle);
+	window.location.href = "app.php";
+	return false;
+};
+
+function gotosupport() {
+
+	window.open("https://support.tricentis.com/community/search_results.do?query=" + $("#search_form").val(), '_blank');
+};

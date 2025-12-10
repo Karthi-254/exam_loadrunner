@@ -1,0 +1,8 @@
+"Make=Nissan&%5BkW%5D=977&Date+of+Manufacture=02%2F05%2F2025&Number+of+Seats=3&Fuel+Type=Diesel"
+"&Payload=300&Total+Weight=5000&List+Price=70000&License+Plate+Number=&Annual+Mileage=400&First"
+"+Name=karthika&Last+Name=vel&Date+of+Birth=03%2F12%2F2004&Gender=Female&Street+Address=kulatho"
+"r&Country=India&Zip+Code=8796786&City=trivandrum&Occupation=Employee&Hobbies=Speeding&Website="
+"&Picture=&Start+Date=03%2F13%2F2028&Insurance+Sum=10000000&Damage+Insurance=Full+Coverage&Opti"
+"onal+Products%5B%5D=Yes&Price+Sum=1%2C554.00&Select+Option=Platinum&Quote+Type=S&E-Mail=karthi"
+"ka.v%40gmail.com&Phone=45667778976&Username=karthika&Password=Karthi%40254&Confirm+Password=Ka"
+"rthi%40254&Comments="

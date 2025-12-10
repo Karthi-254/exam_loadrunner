@@ -1,0 +1,74 @@
+$('form.idealforms').idealforms({
+
+		  silentLoad: false,
+
+		  rules: {
+		  
+			// Enter Vehicle Data
+			'Make': 'select:default',
+			'Model': 'select:default',
+			'Cylinder Capacity': 'required range:1:2000',
+			'[kW]': 'required range:1:2000',
+			'Date of Manufacture': 'required date pastdate',
+			'Number of Seats': 'select:default',
+			'Number of Seats Motorcycle': 'select:default',
+			'Fuel Type': 'select:default',
+			'Payload': 'required range:1:1000',
+			'Total Weight': 'required range:100:50000',
+			'List Price': 'required range:500:100000',
+			'License Plate Number': 'max:10',
+			'Annual Mileage': 'required range:100:100000',
+			
+			//Enter Insurant Data
+			'First Name': 'required name',
+			'Last Name': 'required name',
+			'Date of Birth': 'required date dateinterval',
+			'Street Address': 'min:3',
+			'Country': 'select:default',
+			'Zip Code': 'required digits zip',
+			'Occupation': 'select:default',
+			'Hobbies': 'minoption:1',
+			'Website': 'url',
+			'Picture': 'extension:jpg:png',
+			
+			// Enter Product Data
+			'Start Date': 'required date futuredate',
+			'Insurance Sum': 'select:default',
+			'Merit Rating': 'select:default',
+			'Damage Insurance': 'select:default',
+			'Optional Products[]': 'minoption:1 maxoption:2',
+			'Courtesy Car': 'select:default',
+			
+			// Select Price Option
+			'Select Option' : 'minoption:1',
+
+			// Send Quote
+			'E-Mail': 'required email',
+			'Phone': 'digits phone',
+			'Username': 'required username',
+			'Password': 'required pass',
+			'Confirm Password': 'required equalto:Password',
+			'Comments': 'max:300'
+		  },
+
+		  errors: {
+			'Username': {
+			  ajaxError: 'Username not available'
+			}
+		  },
+		  
+		});
+
+		$('form.idealforms').find('input, select, textarea').on('change keyup', function() {
+		  $('#invalid').hide();
+		});
+		
+		$('.prev').click(function(){
+		  $('.prev').show();
+		  $('form.idealforms').idealforms('prevStep');
+		});
+		
+		$('.next').click(function(){
+		  $('.next').show();
+		  $('form.idealforms').idealforms('nextStep');
+});

@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0,maximum-scale=1">
+		
+		<title>Tricentis Vehicle Insurance</title>
+		<link rel="icon" href="images/tosca.ico" type="image/ico" />
+
+		<!-- Loading third party fonts -->
+		<!--<link href="fonts/roboto/roboto-condensed.css" rel="stylesheet" type="text/css">-->
+		<link href="layout/fonts/awesome/font-awesome.min.css" rel="stylesheet" type="text/css">
+		<link href="layout/fonts/lineo/style.css" rel="stylesheet" type="text/css">
+
+		<!-- Loading css files -->
+		<link rel="stylesheet" href="layout/css/style.css?v3">
+	</head>
+	
+	<body>
+		<div id="site-content">
+						<header class="site-header">
+				<div class="top-header">
+					<div class="container">
+						<a href="index.php" id="branding" name="Logo">
+							<img id="tricentis_logo" src="images/logo.png" alt="Tricentis Logo" title="Tricentis Logo" name="Tricentis Logo" class="logo">
+							<div class="logo-text">
+								<h1 id="app_sub_title" class="site-title">Vehicle Insurance Application</h1>
+								<small id="app_version" class="description">This is a sample application, Version 1.0.1</small>
+							</div>
+						</a>
+					
+						<div class="right-section pull-right">
+					
+							<form action="javascript:gotosupport();" class="search-form">
+								<a id="visitsupport" title="Visit Support" name="Visit Support" target="_blank" href="https://support.tricentis.com"><i class="fa fa-life-ring"></i> Visit Support!</a>
+								<input 	id="search_form" name="Search Support" type="text" placeholder="Search Support...">
+								<button id="search_button" name="Go Search Support" title="Go Search Support" type="submit"><i class="fa fa-search"></i><!--<img src="images/icon-search.png" alt="">--></button>
+							</form>
+						</div>
+					</div>
+				</div>
+
+				<div class="bottom-header">
+					<div class="container">
+						<div class="main-navigation">
+							<button type="button" class="menu-toggle"><i class="fa fa-bars"></i></button>
+							<ul class="menu">
+								<li class="menu-item"><a id="nav_automobile" name="Navigation Automobile" href="#" onclick="gotoapp('Automobile');">Automobile</a></li>
+								<li class="menu-item"><a id="nav_truck" name="Navigation Truck" href="#" onclick="gotoapp('Truck');">Truck</a></li>
+								<li class="menu-item"><a id="nav_motorcycle" name="Navigation Motorcycle" href="#" onclick="gotoapp('Motorcycle');">Motorcycle</a></li>
+								<li class="menu-item"><a id="nav_camper" name="Navigation Camper" href="#" onclick="gotoapp('Camper');">Camper</a></li>
+							</ul>
+						</div>
+						
+						<div class="social-links">
+							<a id="downloadtrial" name="Download Trial" title="Download Trial" href="http://www.tricentis.com/tricentis-tosca-testsuite/tosca-testsuite-trial/" target="_blank">Request Demo</a>						
+							<!--<a id="nav_facebook" class="social_link" name="Facebook" title="Facebook" target="_blank" href="https://www.facebook.com/TRICENTIS"><i class="fa fa-facebook"></i></a>
+							<a id="nav_twitter"	class="social_link" name="Twitter" title="Twitter" target="_blank" href="https://twitter.com/Tricentis"><i class="fa fa-twitter"></i></a>
+							<a id="nav_google" class="social_link" name="Google" title="Google" target="_blank" href="https://plus.google.com/108151335013813449490/posts"><i class="fa fa-google-plus"></i></a>-->
+						</div>
+						
+						<div class="mobile-navigation"></div>
+					</div>
+				</div>
+				
+			</header>			
+			<div class="hero-slider">
+				<ul class="slides">
+					<li data-bg-image="images/slider_car.png">
+						<div class="container">
+							<div class="slide-content">
+								<h2 class="slide-title">Get your <strong>Automobile Insurance</strong></h2>
+								<p>Well, the best way to get to know new software is to use an example to try it out. This sample application has been designed to give you the opportunity to get acquainted with the functional beauty and strength of Tricentis Tosca Testsuite.</p>
+								<a id="get_automobile" title="Get Quote Automobile" name="Get Quote Automobile" href="#" onclick="gotoapp('Automobile');" class="button">Get a quote</a>
+							</div>
+						</div>
+					</li>
+					<li data-bg-image="images/slider_truck.png">
+						<div class="container">
+							<div class="slide-content">
+								<h2 class="slide-title">Get your <strong>Truck Insurance</strong></h2>
+								<p>Well, the best way to get to know new software is to use an example to try it out. This sample application has been designed to give you the opportunity to get acquainted with the functional beauty and strength of Tricentis Tosca Testsuite.</p>
+								<a id="get_truck" title="Get Quote Truck" name="Get Quote Truck" href="#" onclick="gotoapp('Truck');" class="button">Get a quote</a>
+							</div>
+						</div>
+					</li>
+					<li data-bg-image="images/slider_bike.png">
+						<div class="container">
+							<div class="slide-content">
+								<h2 class="slide-title">Get your <strong> Motorcycle Insurance</strong></h2>
+								<p>Well, the best way to get to know new software is to use an example to try it out. This sample application has been designed to give you the opportunity to get acquainted with the functional beauty and strength of Tricentis Tosca Testsuite.</p>
+								<a id="get_motorcycle" title="Get Quote Motorcycle" name="Get Quote Motorcycle" href="#" onclick="gotoapp('Motorcycle');" class="button">Get a quote</a>
+							</div>
+						</div>
+					</li>
+					<li data-bg-image="images/slider_camper.jpg">
+						<div class="container">
+							<div class="slide-content">
+								<h2 class="slide-title">Get your <strong> Camper Insurance</strong></h2>
+								<p>Well, the best way to get to know new software is to use an example to try it out. This sample application has been designed to give you the opportunity to get acquainted with the functional beauty and strength of Tricentis Tosca Testsuite.</p>
+								<a id="get_camper" title="Get Quote Camper" name="Get Quote Camper" href="#" onclick="gotoapp('Camper');" class="button">Get a quote</a>
+							</div>
+						</div>
+					</li>
+				</ul>
+			</div> <!-- .hero-slider -->
+
+			<main class="main-content">
+				<div class="fullwidth-block greet-section">
+					<div class="container">
+						<h2 class="section-title">Welcome Aboard!</h2>
+						<small class="section-subtitle">...and take not only your insurance application testing to the next level</small>
+
+						<div class="row">
+							<div class="col-md-3">
+								<div class="feature">
+								    <img src="images/app_icon_24.png"></img>
+									<!--<i class="icon-phone-24"></i>-->
+									<h3 class="feature-title">We&#039;ve Got You Covered</h3>
+									<p>Optimize your test by minimizing the number of test cases while achieving the highest possible risk coverage.</p>
+								</div>
+							</div>
+							<div class="col-md-3">
+								<div class="feature">
+								
+									<!--<i class="icon-hotel"></i>-->
+									<img src="images/app_icon_car.png"></img>
+									<h3 class="feature-title">No More Search and Destroy</h3>
+									<p>Use a fully integrated set of capabilities for the design, generation, provisioning and management of test data.</p>
+								</div>
+							</div>
+							<div class="col-md-3">
+								<div class="feature">
+									<!--<i class="icon-luggage"></i>-->
+									<img src="images/app_icon_relax.png"></img>
+									<h3 class="feature-title">Relax and Automate</h3>
+									<p>Go beyond script based test automation, using a more powerful, robust and scalable model based approach.</p>
+								</div>
+							</div>
+							<div class="col-md-3">
+								<div class="feature">
+									<!--<i class="icon-credit-card-hand"></i>-->
+									<img src="images/app_icon_people.png"></img>
+									<h3 class="feature-title">Don&#039;t Play Solo</h3>
+									<p>Mimic actions and the behavior of missing services by our orchestrated service virtualization solution.</p>
+								</div>
+							</div>
+						</div> <!-- .row -->
+
+						<div class="text-center">
+							<p>...and that&#039;s just an infinitesimal excerpt of our numerous capabilities.<a id="read_more" title="Read More" name="Read More" href="http://www.tricentis.com"> <b>Read more</b></a></p>
+						</div>
+					</div> <!-- .container -->
+				</div> <!-- .fullwidth-block -->
+
+				<div class="fullwidth-block" data-bg-color="#e9e9e6">
+					<div class="container">
+						<h2 class="section-title">Our Insane Insurance Offer</h2>
+						<small class="section-subtitle">Scrutinize our motives, and get your quote now!</small>
+
+						<div class="row">
+						
+						
+						<!--
+						<div class="col-md-3" style="text-align: center;">	
+							<a href="">
+								<img width="150px" src="images/app_car.png" />	
+								<h3 style="margin-top:10px;" >Automobile</h3>
+							</a>							
+						</div>
+						
+						<div class="col-md-3" style="text-align: center;">	
+							<a href="">
+								<img width="150px" src="images/app_truck.png" />	
+								<h3 style="margin-top:10px;">Truck</h3>	
+							</a>
+						</div>
+						
+						<div class="col-md-3" style="text-align: center;">	
+							<a href="">
+								<img width="125px" src="images/app_bike.png" />	
+								<h3 style="margin-top:10px;">Bike</h3>	
+							</a>
+						</div>
+						
+						<div class="col-md-3" style="text-align: center;">	
+							<a href="">
+								<img width="150px" src="images/app_camper.png" />	
+								<h3 style="margin-top:10px;">Camper</h3>	
+							</a>
+						</div>
+						-->
+						
+						
+							<div class="col-md-3">
+								<div class="offer caption-top">
+									<a id="offer_automobile" name="Offer Automobile" href="#" onclick="gotoapp('Automobile');"><img src="images/photo_car.png" alt="Offer Automobile">
+									<div class="caption">
+										<h3 class="offer-title">Automobile</h3>
+									</div>
+									</a> 
+								</div>
+							</div>
+							<div class="col-md-9">
+								<div class="row">
+									<div class="col-md-4">
+										<div class="offer caption-bottom">
+											<a id="offer_camper" name="Offer Camper" href="#" onclick="gotoapp('Camper');"><img src="images/photo_camper.png" alt="Offer Camper">
+											<div class="caption">
+												<h3 class="offer-title">Camper</h3>
+											</div>
+											</a> 
+										</div>
+									</div>
+									<div class="col-md-8">
+										<div class="offer caption-bottom">
+											<a id="offer_truck" name="Offer Truck" href="#" onclick="gotoapp('Truck');"><img src="images/photo_truck.png" alt="Offer Truck">
+											<div class="caption">
+												<h3 class="offer-title">Truck</h3>
+											</div>
+											</a> 
+										</div>
+									</div>
+								</div>
+								<div class="row">
+									<div class="col-md-12">
+										<div class="offer caption-bottom">
+											<a id="offer_motorcycle" name="Offer Motorcycle" href="#" onclick="gotoapp('Motorcycle');"><img src="images/photo_bike.png" alt="Offer Motorcycle"> 
+											<div class="caption">
+												<h3 class="offer-title">Motorcycle</h3>
+											</div>
+											</a>
+										</div>
+									</div>
+								</div>
+							</div>
+								
+						</div>
+
+					</div>
+				</div>
+
+				<!--
+				<div class="fullwidth-block" data-bg-color="#577699">
+					<div class="container">
+						<div class="testimonial-slider">
+							<ul class="slides">
+								<li>
+									<blockquote>The prominent analyst recognizes our vehicle insurance application as a visionary in the Magic Quadrant for insurance applications. As if that were not enough, they have also named us the coolest vendor they have ever seen.<cite>Gartner</cite></blockquote>
+								</li>
+								<li>
+									<blockquote>Forrester calls our vehicle insurance application as the strong performer in creating insurances for automobiles, motorcycle insurances being a standout feature.<cite>Forrester</cite></blockquote>
+								</li>
+								<li>
+									<blockquote>As a sign of our expanding international reach, voke recognizes our vehicle insurance application for its countless and outstanding innovations.<cite>voke</cite></blockquote>
+								</li>
+							</ul>
+						</div>
+					</div> 
+				</div>
+				-->
+			</main>
+			
+			<!--<div class="separator"></div>-->
+			
+			
+			<div class="site-footer">
+				<div class="bottom-footer">
+					<div class="container">
+						<nav class="footer-navigation">
+							<a id="tricentis_about" name="About"	href="http://www.tricentis.com/about">About</a>
+							<a id="tricentis_products" name="Products" href="http://www.tricentis.com/tricentis-tosca-testsuite">Products</a>
+							<a id="tricentis_events" name="Events" href="http://www.tricentis.com/events-webinars">Events & Webinars</a>
+							<a id="tricentis_resources" name="Resources" href="http://www.tricentis.com/resources">Resources</a>
+							<a id="tricentis_services" name="Services" href="http://www.tricentis.com/services">Services</a>
+						</nav>
+						
+						<div>
+							<a id="nav_facebook" class="social-link" name="Facebook" title="Facebook" target="_blank" href="https://www.facebook.com/TRICENTIS"><i class="fa fa-facebook"></i></a>
+							<a id="nav_twitter"	class="social-link" name="Twitter" title="Twitter" target="_blank" href="https://twitter.com/Tricentis"><i class="fa fa-twitter"></i></a>
+							<a id="nav_google" class="social-link" name="Google" title="Google" target="_blank" href="https://plus.google.com/108151335013813449490/posts"><i class="fa fa-google-plus"></i></a>
+						</div>
+						
+						<div class="colophon">Copyright 2021 by Tricentis GmbH. All rights reserved.</div>
+					</div>
+				</div>
+			</div>			
+		</div>
+		
+		<script src="jquery/jquery-1.12.0.min.js"></script>
+		<script src="jquery/jquery-flexslider-2.2.2.min.js"></script>
+		<script src="layout/js/app.js"></script>
+		<script src="cookies/jquery.cookie.js"></script>
+		<script src="navigation/navigation.js"></script>
+		
+	</body>
+</html>

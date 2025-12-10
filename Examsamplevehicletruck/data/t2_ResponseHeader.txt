@@ -1,0 +1,9 @@
+HTTP/1.1 200 OK
+Date: Wed, 10 Dec 2025 10:17:52 GMT
+Content-Type: text/html; charset=UTF-8
+Transfer-Encoding: chunked
+Connection: keep-alive
+Server: nginx/1.28.0
+Content-Encoding: gzip
+X-Powered-By: PHP/8.2.29
+
